@@ -10,3 +10,8 @@ def load_tasks():
         return []
     with open(TASKS_FILE, 'r') as file:
         return [task.strip() for task in file.readlines()]
+
+def save_tasks(tasks):
+    with open(TASKS_FILE, 'w') as file:
+        for task in tasks:
+            file.write(task + '\n')
