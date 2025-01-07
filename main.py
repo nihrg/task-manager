@@ -15,3 +15,9 @@ def save_tasks(tasks):
     with open(TASKS_FILE, 'w') as file:
         for task in tasks:
             file.write(task + '\n')
+
+def show_tasks(tasks):
+    if not tasks:
+        print("No tasks found.")
+    for i, task in enumerate(tasks, 1):
+        print(f"{i}. {task}")
