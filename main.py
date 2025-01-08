@@ -21,3 +21,8 @@ def show_tasks(tasks):
         print("No tasks found.")
     for i, task in enumerate(tasks, 1):
         print(f"{i}. {task}")
+
+def add_task(task, tasks):
+    tasks.append(task)
+    save_tasks(tasks)
+    print(f"Task '{task}' added.")
