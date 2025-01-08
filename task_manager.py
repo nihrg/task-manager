@@ -1,5 +1,3 @@
-# task-manager
-# A simple command-line to-do list application written in Python.
 
 import os
 
@@ -26,3 +24,13 @@ def add_task(task, tasks):
     tasks.append(task)
     save_tasks(tasks)
     print(f"Task '{task}' added.")
+
+
+def remove_task(task_number, tasks):
+    try:
+        removed = tasks.pop(task_number - 1)
+        save_tasks(tasks)
+        print(f"Task '{removed}' removed.")
+    except IndexError:
+        print("Invalid task number.")
+
