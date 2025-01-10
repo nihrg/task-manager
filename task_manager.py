@@ -34,3 +34,12 @@ def remove_task(task_number, tasks):
     except IndexError:
         print("Invalid task number.")
 
+def main():
+    tasks = load_tasks()
+    
+    while True:
+        print("\nTask Manager")
+        print("1. Show Tasks")
+        print("2. Add Task")
+        print("3. Remove Task")
+        print("4. Quit")
