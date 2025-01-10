@@ -43,3 +43,20 @@ def main():
         print("2. Add Task")
         print("3. Remove Task")
         print("4. Quit")
+
+        if choice == '1':
+            show_tasks(tasks)
+        elif choice == '2':
+            task = input("Enter a task: ")
+            add_task(task, tasks)
+        elif choice == '3':
+            show_tasks(tasks)
+            task_number = int(input("Enter task number to remove: "))
+            remove_task(task_number, tasks)
+        elif choice == '4':
+            break
+        else:
+            print("Invalid choice.")
+
+if __name__ == "__main__":
+    main()
