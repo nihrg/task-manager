@@ -1,4 +1,3 @@
-
 import os
 
 TASKS_FILE = 'tasks.txt'
@@ -44,19 +43,22 @@ def main():
         print("3. Remove Task")
         print("4. Quit")
 
+        choice = input("Choose an option: ").strip()
+        
         if choice == '1':
             show_tasks(tasks)
         elif choice == '2':
-            task = input("Enter a task: ")
+            task = input("Enter a task: ").strip()
             add_task(task, tasks)
         elif choice == '3':
             show_tasks(tasks)
-            task_number = int(input("Enter task number to remove: "))
-            remove_task(task_number, tasks)
+            try:
+                task_number = int(input("Enter task number to remove: ").strip())
+                remove_task(task_number, tasks)
+            except ValueError:
+                print("Please enter a valid number.")
         elif choice == '4':
+            print("Exiting Task Manager. Goodbye!")
             break
         else:
-            print("Invalid choice.")
-
-if __name__ == "__main__":
-    main()
+            print("Invalid choice. Please select an option from 1 to 4.")
