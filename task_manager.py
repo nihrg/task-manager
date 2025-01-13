@@ -43,17 +43,17 @@ def main():
         print("3. Remove Task")
         print("4. Quit")
 
-        choice = input("Choose an option: ").strip()
+        choice = input("Choose an option: ")
         
         if choice == '1':
             show_tasks(tasks)
         elif choice == '2':
-            task = input("Enter a task: ").strip()
+            task = input("Enter a task: ")
             add_task(task, tasks)
         elif choice == '3':
             show_tasks(tasks)
             try:
-                task_number = int(input("Enter task number to remove: ").strip())
+                task_number = int(input("Enter task number to remove: ")
                 remove_task(task_number, tasks)
             except ValueError:
                 print("Please enter a valid number.")
