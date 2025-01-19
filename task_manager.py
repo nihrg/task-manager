@@ -2,6 +2,14 @@ import os
 
 TASKS_FILE = 'tasks.txt'
 
+def clear_screen():
+    # For Windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+    # For macOS and Linux
+    else:
+        _ = os.system('clear')
+
 def load_tasks():
     if not os.path.exists(TASKS_FILE):
         return []
@@ -37,28 +45,29 @@ def main():
     tasks = load_tasks()
     
     while True:
+        
         print("\nTask Manager")
         print("1. Show Tasks")
         print("2. Add Task")
         print("3. Remove Task")
         print("4. Quit")
 
-        choice = input("Choose an option: ")
-        
+        choice = input("\nChoose an option: ")
+        clear_screen()
+
         if choice == '1':
             show_tasks(tasks)
         elif choice == '2':
-            task = input("Enter a task: ")
+            task = input("\nEnter a task: ")
             add_task(task, tasks)
         elif choice == '3':
             show_tasks(tasks)
-            try:
-                task_number = int(input("Enter task number to remove: ")
-                remove_task(task_number, tasks)
-            except ValueError:
-                print("Please enter a valid number.")
+            task_number = int(input("\nEnter task number to remove: "))
+            remove_task(task_number, tasks)
         elif choice == '4':
-            print("Exiting Task Manager. Goodbye!")
+            print("Exiting Task Manager. Goodbye!\n")
             break
         else:
             print("Invalid choice. Please select an option from 1 to 4.")
+if __name__ == "__main__":
+    main()
