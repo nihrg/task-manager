@@ -25,28 +25,30 @@ def show_tasks(tasks):
     if not tasks:
         print("No tasks found.")
     for i, task in enumerate(tasks, 1):
-        print(f"{i}. {task}")
+        print(f"{i}. {task}\n")
 
 def add_task(task, tasks):
     tasks.append(task)
     save_tasks(tasks)
-    print(f"Task '{task}' added.")
+    print(f"Task '{task}' added.\n")
 
 
 def remove_task(task_number, tasks):
     try:
         removed = tasks.pop(task_number - 1)
         save_tasks(tasks)
-        print(f"Task '{removed}' removed.")
+        print(f"Task '{removed}' removed.\n")
     except IndexError:
-        print("Invalid task number.")
+        print("Invalid task number.\n")
+
+clear_screen()
 
 def main():
     tasks = load_tasks()
     
     while True:
         
-        print("\nTask Manager")
+        print("Task Manager")
         print("1. Show Tasks")
         print("2. Add Task")
         print("3. Remove Task")
@@ -58,11 +60,12 @@ def main():
         if choice == '1':
             show_tasks(tasks)
         elif choice == '2':
-            task = input("\nEnter a task: ")
+            task = input("Enter a task: ")
             add_task(task, tasks)
         elif choice == '3':
             show_tasks(tasks)
-            task_number = int(input("\nEnter task number to remove: "))
+            task_number = int(input("Enter task number to remove: "))
+            clear_screen()
             remove_task(task_number, tasks)
         elif choice == '4':
             print("Exiting Task Manager. Goodbye!\n")
